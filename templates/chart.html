@@ -1,0 +1,30 @@
+<div class="row" ng-controller="ChartsCtrl" ng-init="returnOnLogout()">
+    <section ng-controller="TabsCtrl as tab">
+        <ul class="nav nav-pills">
+            <li ng-class="{active:tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Chart 1</a></li>
+            <li ng-class="{active:tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Chart 2</a></li>
+            <li ng-class="{active:tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Chart 3</a></li>
+        </ul>
+        
+        <div ng-show="tab.isSet(1)">
+        	
+<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick">
+</canvas>
+
+        </div>
+        <div ng-show="tab.isSet(2)">
+             
+         <canvas id="bar" class="chart chart-bar" chart-data="dataHist" chart-labels="labelsHist" chart-series="seriesHist"> 
+        </canvas>
+
+
+
+
+        </div>
+        <div ng-show="tab.isSet(3)">
+             <h4>Tab 3</h4>
+        </div>
+    </section>
+</div>
+
+

@@ -1,0 +1,14 @@
+<div class="col-xs-3">
+    {{testdata.imageURL}}
+    <a href="#" class="thumbnail" style="border-style: solid;border-color:black">
+        <img src="{{testdata.imageURL}}" class="img-responsive">
+    </a>
+</div>
+<div class="col-xs-3" ng-repeat="img in testdata.result | limitTo:7">
+    <a href="{{img}}" class="thumbnail">
+        <img src="{{img}}" class="img-responsive">
+    </a>
+</div>
+<div class="col-xs-12">
+    <hr class="divider">
+</div>

@@ -1,0 +1,104 @@
+<section ng-controller="TabsCtrl as tab">
+        <ul class="nav nav-pills">
+            <li ng-class="{active:tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Recommendations</a></li>
+            <li ng-class="{active:tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Tagging</a></li>
+            <li ng-class="{active:tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Cross Search</a></li>
+        </ul>
+         <div ng-show="tab.isSet(1)">
+            <div class="row" ng-controller="UploadNNCtrl">
+                <ng-include src="'templates/uploadView.html'"></ng-include>
+
+
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <button ng-click="clearNN()" class="btn btn-danger btn-lg" style="margin-top:30px">Clear Recent Results</button>
+                    </div>
+                </div>
+
+
+                <div class="row" ng-repeat="testdata in nnData">
+                    <div class="col-xs-3">
+                        <a class="thumbnail" style="border-style: solid;border-color:black">
+                            <img src="{{testdata.imageURL}}" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-3" ng-repeat="img in testdata.result | limitTo:7">
+                        <a target="_blank" href="{{img.productURL}}" class="thumbnail">
+                            <img src="{{img.imageURL}}" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-12">
+                        <hr class="divider">
+                    </div>
+                </div>
+            </div>
+         </div>
+
+          <div ng-show="tab.isSet(2)">
+            <div class="row" ng-controller="UploadTagsCtrl">
+                <ng-include src="'templates/uploadView.html'"></ng-include>
+                
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <button ng-click="clearTags()" class="btn btn-danger btn-lg" style="margin-top:30px">Clear Recent Results</button>
+                    </div>
+                </div>
+                    
+                <div class="row" ng-repeat="testdata in tagsData">
+                    <div class="col-xs-3">
+                        <a href="#" class="thumbnail" style="border-style: solid;border-color:black">
+                            <img src="{{testdata.imageURL}}" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-9">
+                        <ul ng-repeat="tag in testdata.result">
+                            <li>
+                                <button class="btn btn-primary" type="button">
+                                      {{tag}}
+                                </button>
+                                
+                            </li>
+                    </ul></div>
+                    <div class="col-xs-12">
+                        <hr class="divider">
+                    </div>
+                </div>
+
+
+                
+            </div>
+          </div>
+        <div ng-show="tab.isSet(3)">
+            <div class="row" ng-controller="UploadCrossCtrl">
+                <ng-include src="'templates/uploadView.html'"></ng-include>
+
+
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-danger btn-lg" style="margin-top:30px" ng-click="clearCross()">Clear Recent Results</button>
+                    </div>
+                </div>
+
+
+
+                <div class="row" ng-repeat="testdata in crossData">
+                    <div class="col-xs-3">
+                        <a href="#" class="thumbnail" style="border-style: solid;border-color:black">
+                            <img src="{{testdata.imageURL}}" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-3" ng-repeat="img in testdata.result | limitTo:7">
+                        <a target="_blank" href="{{img.productURL}}" class="thumbnail">
+                            <img src="{{img.imageURL}}" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-12">
+                        <hr class="divider">
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

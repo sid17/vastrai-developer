@@ -1,0 +1,143 @@
+<!-- 	<div class="col-md-3"> <p class="text-danger" ng-show="loginError">{{ loginError }}</p> </div> -->
+
+
+
+<div class="container">
+    <div class="row">
+    <section ng-controller="TabsCtrl as tab">
+        <ul class="nav nav-pills">
+            <li ng-class="{active:tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Log In</a></li>
+            <li ng-class="{active:tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Register</a></li>
+        </ul>
+        
+        <div ng-show="tab.isSet(1)">
+        	
+<div ng-controller="AuthCtrl" style="margin-top:100px" ng-init="returnOnLogin()">
+<form ngcloak ng-if="!user" ng-submit="login(user)">
+
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon" id="sizing-addon1">Username</span>
+	  <input type="email" class="form-control" ng-model="user.email" placeholder="Email address" required="" id="logInEmail" autofocus="" aria-describedby="sizing-addon1">
+	</div>
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon" id="sizing-addon1">Password</span>
+	  <input type="password" id="logInPassword" class="form-control" ng-model="user.password" placeholder="Password" required="" aria-describedby="sizing-addon1">
+	</div>
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+</div>
+<button type="submit" class="btn btn-primary">Sign In</button>
+</div></form>
+</div>
+
+
+        </div>
+        <div ng-show="tab.isSet(2)">
+             
+<div ng-controller="AuthCtrl" style="margin-top:100px">
+<form ngcloak ng-if="!user" ng-submit="register(user)">
+
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon" id="sizing-addon1">Username</span>
+	  <input type="email" class="form-control" ng-model="user.email" placeholder="Email address" required="" id="logInEmail" autofocus="" aria-describedby="sizing-addon1">
+	</div>
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon" id="sizing-addon1">Password</span>
+	  <input type="password" id="logInPassword" class="form-control" ng-model="user.password" placeholder="Password" required="" aria-describedby="sizing-addon1">
+	</div>
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+</div>
+<button type="submit" class="btn btn-primary">Register</button>
+</div></form>
+</div>
+
+
+
+        </div>
+    </section>
+</div>
+</div>
+
+
+
+
+
+
+<!-- <div ng-controller="AuthCtrl" class="col-md-8">
+<form ngcloak ng-if="!user" class="form-inline"  ng-submit='login(user)'>
+ 
+<div class="form-group">
+    <label >Email</label>
+    <input type="email" class="form-control" ng-model="user.email" placeholder="Email address" required="" id='logInEmail' autofocus="">
+ </div>
+
+ <div class="form-group">
+    <label >Password</label>
+      <input type="password" id='logInPassword' class="form-control" ng-model="user.password" placeholder="Password" required="">
+ </div>
+
+  
+
+</form>
+
+</div>
+</div> -->
+
+
+<!-- <div class="row">
+
+<div class="col-md-8" ng-controller="AuthCtrl">
+<form ng-cloak ng-if="!user" class="form-inline" role="form" ng-submit='register(user)'>
+<div class="form-group">
+    <label for="exampleInputName2">Email</label>
+  <input type="email" class="form-control" ng-model="user.email" placeholder="Email address" required="" autofocus="" id="registerEmail">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Password</label>
+     <input type="password" class="form-control" ng-model="user.password" placeholder="Password" required="" id="registerPassword">
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+</div>
+</div> -->
+
+<!-- 	<div class="col-md-3">
+    <p class="text-danger" ng-show="registerError">{{ registerError }}</p>
+	</div> -->
