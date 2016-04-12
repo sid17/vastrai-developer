@@ -6,15 +6,15 @@
             <li ng-class="{active:tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Chart 3</a></li>
         </ul>
         
-        <div ng-show="tab.isSet(1)">
-        	
-<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick">
-</canvas>
+        <div ng-show="tab.isSet(1)" class="col-md-12">
 
+<canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-colours="colorScheme1"> 
+</canvas>
+<!-- chart-click="onClick" -->
         </div>
         <div ng-show="tab.isSet(2)">
              
-         <canvas id="bar" class="chart chart-bar" chart-data="dataHist" chart-labels="labelsHist" chart-series="seriesHist"> 
+         <canvas id="line" class="chart chart-line" chart-data="data1" chart-labels="labels1" chart-series="series1"> 
         </canvas>
 
 
@@ -22,7 +22,8 @@
 
         </div>
         <div ng-show="tab.isSet(3)">
-             <h4>Tab 3</h4>
+          <canvas id="line" class="chart chart-line" chart-data="data2" chart-labels="labels2" chart-series="series2" chart-colours="colorScheme3"> 
+        </canvas>
         </div>
     </section>
 </div>
